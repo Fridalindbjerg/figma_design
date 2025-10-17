@@ -1,0 +1,50 @@
+---
+import financialProjections from "@data/financialProjections.json";
+
+import Cal from "@icons/cal.svg";
+import Card from "@icons/card.svg";
+import Law from "@icons/law.svg";
+
+import DynamicIcon from "./helpers/DynamicIcon.astro";
+console.log(financialProjections);
+// const { cardContent } = Astro.props;
+---
+
+<h2>{financialProjections.title}</h2>
+<p>{financialProjections.subtitle}</p>
+
+<ul class="full-width">
+  {
+    financialProjections.values.map((card) => (
+      <li>
+        <h3>{card.title}</h3>
+        <p>{card.icon}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    padding-block: 0;
+    list-style: none;
+    display: flex;
+    /* gap: */
+    overflow-x: auto; /* Scroll på x-aksen */
+
+    --scroll-padding: max(1rem, 50% - var(--content-width) / 2);
+    scroll-padding-inline: var(--scroll-padding);
+    padding-inline: var(--scroll-padding);
+    scroll-snap-type: x mandatory; /* Aktiver snap på x-aksen */
+    scroll-behavior: smooth;
+  }
+  li {
+    padding: var(--card-padding);
+    background-color: var(--card-background);
+    color: var(--card-text-color);
+    border-radius: var(--card-border-radius);
+    flex: 0 0 400px; /* Hvert item tager 80% af bredden */
+    scroll-snap-align: start; /* Snap ved start af elementet */
+    scroll-snap-stop: always;
+  }
+</style>
