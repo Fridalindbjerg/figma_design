@@ -29,11 +29,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   {
     caseStudy.sections.map((section) => (
       <section>
-        {caseStudy.sections[0] === section ? (
-          <h2>{section.title}</h2>
-        ) : (
-          <h3>{section.title}</h3>
-        )}
+        {caseStudy.sections[0] === section ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
 
         {Array.isArray(section.content) ? (
           <>
@@ -51,17 +47,82 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
             ))}
           </ul>
         )}
-        {section.image && (
-          <DynamicImage
-            imagePath={section.image}
-            altText={section.title}
-            width={600}
-            height={400}
-          />
-        )}
+        {section.image && <DynamicImage imagePath={section.image} altText={section.title} width={600} height={400} />}
       </section>
     ))
   }
 </article>
 
-<style></style>
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+
+    header img {
+      border-radius: 2rem;
+    }
+    .case-details {
+      display: flex;
+      justify-content: space-between;
+      border-radius: 1.875rem;
+
+      padding: 3.3125rem 3.75rem;
+      background-color: #000;
+      color: white;
+
+      dl {
+        display: flex;
+        align-items: flex-start;
+        gap: 6.25rem;
+
+        dt {
+          font-weight: 600;
+          font-size: var(--step--4);
+        }
+      }
+
+      a {
+        padding: 1rem 2.0625rem;
+        background-color: var(--yellow);
+        border-radius: 2.625rem;
+        color: #000;
+        font-weight: 600;
+      }
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+
+      ul {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+
+      ul,
+      p {
+        font-weight: 400;
+        font-size: var(--step--5);
+      }
+
+      img {
+        /* align-items: center; */
+        justify-content: center;
+      }
+    }
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: var(--step--1);
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: var(--step--3);
+  }
+</style>
