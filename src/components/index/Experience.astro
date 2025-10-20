@@ -16,19 +16,6 @@ import experience from "@data/experience.json";
       {experience.stats.map((label) => <li>{label.label}</li>)}
     </ul>
   </article>
-
-  <!-- <ul class="stat">
-    {
-      experience.stats.map((label) => (
-        <li class="stat" style={`--percent:${label.label};`}>
-        </li>
-        <li>
-
-            {label.label}
-        </li>
-      ))
-    }
-  </ul> -->
 </section>
 
 <style>
@@ -41,6 +28,7 @@ import experience from "@data/experience.json";
     div {
       display: flex;
       flex-direction: column;
+      gap: var(--space-m);
       /* text-align: left; */
 
       p:first-child {
