@@ -1,34 +1,33 @@
 ---
-import financialProjections from "@data/financialProjections.json";
+import values from "@data/coreValues.json";
 import DynamicIcon from "./helpers/DynamicIcon.astro";
-console.log(financialProjections);
 ---
 
 <section>
   <div class="financial">
     <div>
-      <h2>{financialProjections.title}</h2>
-      <p>{financialProjections.subtitle}</p>
+      <p>Growing with our Clients</p>
+      <h2>{values.title}</h2>
+      <p>{values.subtitle}</p>
     </div>
-    <div class="icon">
-      <div class="black">
-        <DynamicIcon name="arrow-left" />
-      </div>
-      <div class="yellow">
-        <DynamicIcon name="arrow--right" />
-      </div>
-    </div>
+    <a href={values.button.link}>{values.button.text}</a>
   </div>
 
   <ul class="full-width">
     {
-      financialProjections.values.map((card) => (
+      values.values.map((card) => (
         <li>
-          <DynamicIcon name={card.icon} />
+          <div class="black">
+            <DynamicIcon name={card.icon} />
+          </div>
+
           <h3>{card.title}</h3>
 
           <p>{card.description}</p>
-          {/* <div>{card.icon}</div> */}
+          <div class="icon">
+            <a href={card.link.url}>{card.link.text} </a>
+            <DynamicIcon name="arrow--right" />
+          </div>
         </li>
       ))
     }
@@ -37,13 +36,16 @@ console.log(financialProjections);
 
 <style>
   section {
+    background-color: black;
     display: flex;
     flex-direction: column;
-    gap: var(--step-2);
+    gap: var(--space-m);
   }
   .financial {
+    color: white;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 
     > div:first-child {
       max-width: 600px;
@@ -52,16 +54,24 @@ console.log(financialProjections);
         font-size: var(--step--1);
         font-weight: 600;
       }
+
+      p:first-child {
+        text-transform: uppercase;
+      }
       p {
         margin-top: var(--space-s);
         font-size: var(--step--5);
       }
     }
 
-    .icon {
-      display: flex;
-      gap: var(--space-m);
-      align-items: center;
+    a {
+      font-weight: 600;
+      margin-top: auto;
+      background-color: var(--bg-grey);
+      padding: 0.9375rem 2.125rem;
+      border-radius: 2.625rem;
+      color: black;
+      text-decoration: none;
     }
   }
 
@@ -72,14 +82,7 @@ console.log(financialProjections);
     display: flex;
 
     align-items: flex-start;
-    /* gap: */
-    overflow-x: auto; /* Scroll på x-aksen */
-
-    --scroll-padding: max(1rem, 50% - var(1200px) / 2);
-    scroll-padding-inline: var(--scroll-padding);
-    padding-inline: var(--scroll-padding);
-    scroll-snap-type: x mandatory; /* Aktiver snap på x-aksen */
-    scroll-behavior: smooth;
+    padding: 0;
   }
   li {
     background-color: var(--bg-grey);
@@ -91,10 +94,6 @@ console.log(financialProjections);
     padding: 2.8125rem 2.0625rem;
     gap: var(--space-2xs);
 
-    flex: 0 0 400px;
-    scroll-snap-align: start; /* Snap ved start af elementet */
-    scroll-snap-stop: always;
-
     h3 {
       font-size: var(--step--3);
       font-weight: 500;
@@ -102,29 +101,24 @@ console.log(financialProjections);
     p {
       font-size: var(--step--5);
     }
-  }
 
-  .full-width li:nth-child(2) {
-    /* dine styles her */
-    background: black;
-    color: white;
+    a {
+      text-decoration: none;
+      color: black;
+    }
 
     .icon {
-      color: var(--yellow);
+      display: flex;
+      gap: var(--space-m);
+      align-items: center;
     }
   }
 
-  .black,
-  .yellow {
+  .black {
     background-color: black;
     color: white;
     padding: 1rem;
-
     display: inline-flex;
     border-radius: 100%;
-  }
-  .yellow {
-    background-color: var(--yellow);
-    color: black;
   }
 </style>

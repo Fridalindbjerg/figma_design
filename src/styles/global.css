@@ -65,10 +65,10 @@ body > * {
   grid-column: content-start / content-end;
 }
 
-main {
+/* main {
   display: grid;
   grid-column: content-start / content-end;
-}
+} */
 
 .full-width {
   grid-column: full-start / full-end;

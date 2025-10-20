@@ -1,0 +1,76 @@
+<article>
+  <div>
+    <h3>Subscribe Our Newsletter</h3>
+    <p>Build stronger Customer Relationships with Consultalk</p>
+  </div>
+  <div>
+    <form>
+      <input type="email" id="email" name="email" placeholder="your email adress" />
+    </form>
+    <a href="#">Subscribe</a>
+  </div>
+</article>
+
+<style>
+  article {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 22px;
+    padding: 4rem;
+    background-image: url("/src/assets/images/Pattern.png");
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    div:first-child {
+      h3 {
+        font-size: var(--step--2);
+        font-weight: 600;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      gap: var(--space-s);
+      form {
+        display: flex;
+        align-items: center;
+
+        input {
+          background-color: white;
+          width: 100%;
+          padding: 0.9375rem 3.5rem;
+          border-radius: 6px;
+          border: none;
+          font-size: var(--step--4);
+        }
+      }
+
+      a {
+        align-self: center;
+        border-radius: 2.625rem;
+        background: #ffcc4a;
+        padding: 0.9375rem 2.8125rem;
+        text-decoration: none;
+        color: black;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0rem;
+          left: 5rem;
+          background: green;
+          border-radius: 30px;
+          width: 150px;
+          aspect-ratio: 1/1;
+          z-index: 1;
+          transform: translate(50%, 0) rotate(45deg);
+        }
+      }
+    }
+  }
+</style>
