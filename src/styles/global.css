@@ -30,28 +30,6 @@ html {
   --step-2: clamp(1.1385rem, -0.4662rem + 7.132vw, 4.8828rem);
 }
 
-/* body {
-  display: grid;
-  grid-template-columns: [full-start] 1fr [content-end] minmax(0, 600px) minmax(0, 600px) [content-end] 1fr [full-end];
-}
-
-main {
-  display: grid;
-  grid-template-columns: subgrid;
-
-  > * {
-    grid-column: content-start / content-end;
-  }
-}
-
-body > * {
-  grid-column: content-start / content-end;
-}
-
-.full-width {
-  grid-column: 1 / -1;
-} */
-
 body {
   display: grid;
   grid-template-columns:
@@ -63,13 +41,4 @@ body {
 
 body > * {
   grid-column: content-start / content-end;
-}
-
-/* main {
-  display: grid;
-  grid-column: content-start / content-end;
-} */
-
-.full-width {
-  grid-column: full-start / full-end;
 }

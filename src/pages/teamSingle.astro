@@ -1,0 +1,99 @@
+---
+import Layout from "@layouts/Layout.astro";
+import DynamicIcon from "@components/helpers/DynamicIcon.astro";
+import DynamicImage from "@components/helpers/DynamicImage.astro";
+
+import employees from "@data/employees.json";
+import Newsletter from "@components/Newsletter.astro";
+
+const employee = employees[0]; // vælger første medarbejder
+---
+
+<Layout>
+  <section>
+    <DynamicImage imagePath={employee.img} altText={employee.name} width={600} height={600} />
+    <div>
+      <div class="top">
+        <div>
+          <h1>
+            {employee.name}
+          </h1>
+          <p>{employee.title}</p>
+        </div>
+        <span> &#124; </span>
+
+        <ul>
+          {
+            employee.social_links.map((icons) => (
+              <li>
+                <DynamicIcon name={icons.icon} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <p class="marginTop">
+        {employee.description_long}
+      </p>
+      <hr />
+      <div>
+        <h2>Past experiences</h2>
+        <p class="marginTop">
+          {employee.past_experience}
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        font-size: var(--space-m);
+        font-weight: 600;
+      }
+
+      span {
+        font-size: 1rem;
+      }
+
+      ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        gap: var(--space-m);
+        text-decoration: none;
+        list-style: none;
+      }
+    }
+    .marginTop {
+      margin-top: var(--space-m);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 40px;
+    }
+
+    hr {
+      border: none; /* fjern standard ramme */
+      height: 2px; /* tykkelse */
+      background-color: #ccc; /* farve */
+      margin: var(--space-l) 0; /* afstand til sektioner */
+    }
+    h2 {
+      font-size: var(--space-m);
+      font-weight: 600;
+    }
+  }
+</style>
