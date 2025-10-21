@@ -5,10 +5,10 @@ import caseStudy from "@data/caseStudy.json";
 const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 ---
 
-<article class="container">
-  <header>
+<article class="container content">
+  <header class="full">
     <DynamicImage imagePath={image} altText={caseName} />
-    <div class="case-details">
+    <div class="case-details margin">
       <dl>
         <div>
           <dt>Case Name</dt>
@@ -28,7 +28,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   </header>
   {
     caseStudy.sections.map((section) => (
-      <section>
+      <section class="feature">
         {caseStudy.sections[0] === section ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
 
         {Array.isArray(section.content) ? (
@@ -54,22 +54,57 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 </article>
 
 <style>
+  .content {
+    --gap: clamp(1rem, 6vw, 3rem);
+    --full: minmax(var(--gap), 1fr);
+    --content: min(70ch, 100% - var(--gap) * 2);
+
+    --feature: minmax(0, 6rem);
+
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--full)
+      [feature-start] var(--feature)
+      [content-start] var(--content) [content-end]
+      var(--feature) [feature-end]
+      var(--full) [full-end];
+  }
+
+  .content > * {
+    grid-column: content;
+  }
+
+  .feature {
+    grid-column: feature !important;
+  }
+  .full {
+    grid-column: full !important;
+  }
+
   article {
+    margin: var(--space-2xl) 0;
+
     display: flex;
     flex-direction: column;
     gap: var(--space-l);
 
     header img {
       border-radius: 2rem;
+      width: 100%;
+      display: block;
     }
     .case-details {
+      max-width: 90%; /* eller hvad du ønsker */
+      margin: -5rem auto 0 auto;
+
+      padding: 3.3125rem 2rem; /* top/bund og venstre/højre padding */
       display: flex;
       justify-content: space-between;
       border-radius: 1.875rem;
-
-      padding: 3.3125rem 3.75rem;
       background-color: #000;
       color: white;
+      position: relative;
+      z-index: 2;
 
       dl {
         display: flex;
@@ -110,8 +145,9 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       }
 
       img {
-        /* align-items: center; */
-        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
     }
   }
