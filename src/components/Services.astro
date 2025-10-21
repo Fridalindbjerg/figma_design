@@ -4,7 +4,7 @@ import servicesData from "@data/services.json";
 console.log(servicesData);
 ---
 
-<ul>
+<ul class="container">
   {
     servicesData.services.map((service) => (
       <li>
@@ -21,6 +21,8 @@ console.log(servicesData);
 <style>
   @layer components {
     ul {
+      margin-top: -6rem;
+
       display: flex;
       /* flex-wrap: wrap; */
 

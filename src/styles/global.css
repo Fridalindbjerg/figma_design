@@ -46,10 +46,6 @@ body > * {
 body {
   display: grid;
   grid-template-columns: [full-start] 1fr [content-start] minmax(0, 600px) [middle] minmax(0, 600px) [content-end] 1fr [full-end];
-  /* 
-    > *{
-      grid-column: 2;
-    } */
 }
 
 main {
