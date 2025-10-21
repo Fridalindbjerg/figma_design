@@ -1,0 +1,138 @@
+---
+import Checkmark from "@icons/checkmark.svg";
+---
+
+<section class="container">
+  <div class="wrapper">
+    <!-- <Image src={indexAbout} alt=" CEO"></div> -->
+
+    <!-- <HeroBgWrapper imagePath="indexAboutPhoto.jpg" class="hero-bg">
+            <h1>Din overskrift</h1>
+            </HeroBgWrapper> -->
+    <figure>
+      <img src="/src/assets/images/indexAboutPhoto.jpg" alt="people at table" />
+    </figure>
+    <div>
+      <div>
+        <p>OUR VISION</p>
+        <h2>Turn your ideas into reality.</h2>
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <Checkmark class="check" width={40} height={40} />
+            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</p>
+          </li>
+          <li>
+            <Checkmark class="check" width={40} height={40} />
+            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital..</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <article>
+    <div>
+      <p>1128+</p>
+      <p>Successful Work</p>
+    </div>
+    <div>
+      <p>908+</p>
+      <p>Team member</p>
+    </div>
+    <div>
+      <p>258+</p>
+      <p>Happy Customers</p>
+    </div>
+    <div>
+      <p>564+</p>
+      <p>Creative Idea</p>
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    article {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: var(--space-xl);
+    }
+
+    div:has(p + p) p:first-child {
+      font-size: var(--step-0);
+      font-weight: 400;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+
+      gap: var(--space-2xl);
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+
+        > div > p:first-child {
+          text-transform: uppercase;
+          margin-bottom: var(--space-xs);
+        }
+      }
+
+      figure {
+        background-image: url("/src/assets/images/Pattern.png");
+        z-index: -2;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        margin-inline: auto;
+        display: grid;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0rem;
+          left: 5rem;
+          background: green;
+          border-radius: 30px;
+          width: 150px;
+          aspect-ratio: 1/1;
+          z-index: -1;
+        }
+
+        img {
+          justify-self: end; /* højre */
+          align-self: end; /* nederst */
+          border-radius: 50px;
+
+          inline-size: 75%;
+          border-radius: 40px;
+        }
+      }
+
+      h2 {
+        margin-bottom: var(--space-xs);
+        font-size: var(--step--1);
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        display: flex;
+        gap: var(--space-s);
+      }
+
+      .check {
+        color: green;
+      }
+    }
+  }
+</style>

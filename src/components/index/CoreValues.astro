@@ -1,9 +1,11 @@
 ---
 import values from "@data/coreValues.json";
 import DynamicIcon from "@components/helpers/DynamicIcon.astro";
+const { card_bg, backGround } = Astro.props;
 ---
 
-<section class="full-bleed">
+<section class={`full-bleed ${backGround}`}>
+
   <div class="wrapperCore container">
     <div class="financial">
       <div>
@@ -11,13 +13,13 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
         <h2>{values.title}</h2>
         <p>{values.subtitle}</p>
       </div>
-      <a href={values.button.link}>{values.button.text}</a>
+      <a class={backGround} href={values.button.link}>{values.button.text}</a>
     </div>
 
     <ul>
       {
         values.values.map((card) => (
-          <li>
+          <li class={card_bg}>
             <div class="black">
               <DynamicIcon name={card.icon} />
             </div>
@@ -38,7 +40,7 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
 
 <style>
   section {
-    background-color: black;
+    /* background-color: black; */
 
     .wrapperCore {
       display: flex;
@@ -71,7 +73,7 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
         a {
           font-weight: 600;
           margin-top: auto;
-          background-color: var(--bg-grey);
+          background-color: {card_bg};
           padding: 0.9375rem 2.125rem;
           border-radius: 2.625rem;
           color: black;
@@ -89,7 +91,6 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
         padding: 0;
       }
       li {
-        background-color: var(--bg-grey);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -127,4 +128,20 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
     display: inline-flex;
     border-radius: 100%;
   }
-</style>
+
+  .blackBackground{
+  background-color: black;
+  
+
+  }
+  .grey {
+            background-color: var(--bg-grey);
+            color: black;
+
+          }
+
+          .white{
+
+            background-color: white;
+          }
+          </style>

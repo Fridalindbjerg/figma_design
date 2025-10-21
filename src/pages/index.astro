@@ -1,20 +1,20 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/Hero.astro";
-import IndexAbout from "@components/index/IndexAbout.astro";
 import CoreValues from "@components/index/CoreValues.astro";
 import Experience from "@components/index/Experience.astro";
 import ContactUs from "@components/index/ContactUs.astro";
 import FinancialProjections from "@components/index/FinancialProjections.astro";
+import WhatToExpect from "@components/index/WhatToExpect.astro";
 ---
 
 <Layout>
   <main>
     <Hero />
-    <IndexAbout />
+    <WhatToExpect />
     <FinancialProjections />
     <Experience />
-    <CoreValues />
+    <CoreValues card_bg="grey" backGround="blackBackground" />
     <ContactUs />
   </main>
 </Layout>
