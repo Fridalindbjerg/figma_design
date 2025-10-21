@@ -2,106 +2,111 @@
 import experience from "@data/experience.json";
 ---
 
-<section>
-  <div>
-    <p>experience</p>
-    <h2>{experience.heading}</h2>
-    <p>{experience.subheading}</p>
+<section class="full-bleed">
+  <div class="wrapperExperience container">
+    <div>
+      <p>experience</p>
+      <h2>{experience.heading}</h2>
+      <p>{experience.subheading}</p>
+    </div>
+    <article>
+      <ul class="stats">
+        {experience.stats.map((label) => <li class="stat" style={`--percent:${label.value};`} />)}
+      </ul>
+      <ul class="experience">
+        {experience.stats.map((label) => <li>{label.label}</li>)}
+      </ul>
+    </article>
   </div>
-  <article>
-    <ul class="stats">
-      {experience.stats.map((label) => <li class="stat" style={`--percent:${label.value};`} />)}
-    </ul>
-    <ul class="experience">
-      {experience.stats.map((label) => <li>{label.label}</li>)}
-    </ul>
-  </article>
 </section>
 
 <style>
   section {
     background-color: var(--yellow);
     padding: 3rem;
-    display: flex;
-    /* justify-content: center; */
 
-    div {
+    .wrapperExperience {
       display: flex;
-      flex-direction: column;
-      gap: var(--space-m);
-      /* text-align: left; */
+      /* justify-content: center; */
 
-      p:first-child {
-        text-transform: uppercase;
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-m);
+        /* text-align: left; */
+
+        p:first-child {
+          text-transform: uppercase;
+        }
+
+        h2 {
+          font-size: var(--step--1);
+          font-weight: 600;
+        }
       }
 
-      h2 {
-        font-size: var(--step--1);
-        font-weight: 600;
-      }
-    }
+      article {
+        ul:nth-child(2) {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          padding: 0;
+          gap: 2rem;
 
-    article {
-      ul:nth-child(2) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 0;
-        gap: 2rem;
+          list-style: none;
+          text-align: center;
+        }
 
-        list-style: none;
-        text-align: center;
-      }
-
-      .stats {
-        /* display: flex;
+        .stats {
+          /* display: flex;
         gap: 2rem; */
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 0;
-        gap: 2rem;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          padding: 0;
+          gap: 2rem;
 
-        ul {
-        }
-      }
-
-      .stat {
-        container: stat / inline-size;
-        --actualPercent: calc(var(--percent) * 1%);
-        --border-width: 5px;
-        aspect-ratio: 1;
-        width: 150px;
-        border-radius: calc(Infinity * 1px);
-        border: var(--border-width) solid transparent;
-        background:
-          conic-gradient(var(--yellow)) padding-box,
-          conic-gradient(white var(--actualPercent), #daae3c 0) border-box;
-
-        display: grid;
-
-        counter-reset: c var(--percent);
-
-        &::before,
-        &::after {
-          grid-area: 1 / 1;
+          ul {
+          }
         }
 
-        &::after {
-          content: counter(c, decimal-leading-zero) "%";
-          place-self: center;
-          font-size: 30cqw;
-          font-variant-numeric: tabular-nums;
-        }
-
-        &::before {
-          content: "";
+        .stat {
+          container: stat / inline-size;
+          --actualPercent: calc(var(--percent) * 1%);
+          --border-width: 5px;
           aspect-ratio: 1;
-          border-radius: 99px;
-          width: 20px;
-          offset-path: border-box;
-          offset-distance: var(--actualPercent);
-          offset-anchor: 50% calc(50% - var(--border-width) / 2);
-          background: black;
-          border: solid var(--border-width) white;
+          width: 150px;
+          border-radius: calc(Infinity * 1px);
+          border: var(--border-width) solid transparent;
+          background:
+            conic-gradient(var(--yellow)) padding-box,
+            conic-gradient(white var(--actualPercent), #daae3c 0) border-box;
+
+          display: grid;
+
+          counter-reset: c var(--percent);
+
+          &::before,
+          &::after {
+            grid-area: 1 / 1;
+          }
+
+          &::after {
+            content: counter(c, decimal-leading-zero) "%";
+            place-self: center;
+            font-size: 30cqw;
+            font-variant-numeric: tabular-nums;
+          }
+
+          &::before {
+            content: "";
+            aspect-ratio: 1;
+            border-radius: 99px;
+            width: 20px;
+            offset-path: border-box;
+            offset-distance: var(--actualPercent);
+            offset-anchor: 50% calc(50% - var(--border-width) / 2);
+            background: black;
+            border: solid var(--border-width) white;
+          }
         }
       }
     }

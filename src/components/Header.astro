@@ -1,21 +1,23 @@
-<header class="full-width">
-  <div>AskExperts</div>
-  <ul>
-    <li>
-      <a href="#"> Home</a>
-    </li>
-    <li>
-      <a href="#">Case Study</a>
-    </li>
-    <li>
-      <a href="#">Team</a>
-    </li>
-    <li>
-      <a href="#">About</a>
-    </li>
-  </ul>
+<header class="full-bleed">
+  <div class="wrapperHeader container">
+    <div>AskExperts</div>
+    <ul>
+      <li>
+        <a href="#"> Home</a>
+      </li>
+      <li>
+        <a href="#">Case Study</a>
+      </li>
+      <li>
+        <a href="#">Team</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+    </ul>
 
-  <button popovertarget="popup"> Login </button>
+    <button popovertarget="popup"> Login </button>
+  </div>
 
   <!-- <a href="#" popovertarget="popup">Login</a> -->
 
@@ -41,10 +43,12 @@
 
 <style>
   header {
+    background-color: var(--bg-header);
+  }
+  .wrapperHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg-header);
     color: var(--white);
     /* font-family: Cabin; */
 
@@ -71,9 +75,9 @@
       padding: 4px 16px;
       color: black;
     }
-    .full-width {
+    /* .full-width {
       grid-column: 1 / -1;
-    }
+    } */
 
     [popover] {
       opacity: 0;

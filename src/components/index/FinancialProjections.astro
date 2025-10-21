@@ -3,8 +3,8 @@ import financialProjections from "@data/financialProjections.json";
 import DynamicIcon from "@components/helpers/DynamicIcon.astro";
 ---
 
-<section>
-  <div class="financial">
+<section class="full-bleed">
+  <div class="financial container">
     <div>
       <h2>{financialProjections.title}</h2>
       <p>{financialProjections.subtitle}</p>
@@ -19,7 +19,7 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
     </div>
   </div>
 
-  <ul class="full-width">
+  <ul>
     {
       financialProjections.values.map((card) => (
         <li>

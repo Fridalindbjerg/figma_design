@@ -3,114 +3,120 @@ import values from "@data/coreValues.json";
 import DynamicIcon from "@components/helpers/DynamicIcon.astro";
 ---
 
-<section>
-  <div class="financial">
-    <div>
-      <p>Growing with our Clients</p>
-      <h2>{values.title}</h2>
-      <p>{values.subtitle}</p>
+<section class="full-bleed">
+  <div class="wrapperCore container">
+    <div class="financial">
+      <div>
+        <p>Growing with our Clients</p>
+        <h2>{values.title}</h2>
+        <p>{values.subtitle}</p>
+      </div>
+      <a href={values.button.link}>{values.button.text}</a>
     </div>
-    <a href={values.button.link}>{values.button.text}</a>
+
+    <ul>
+      {
+        values.values.map((card) => (
+          <li>
+            <div class="black">
+              <DynamicIcon name={card.icon} />
+            </div>
+
+            <h3>{card.title}</h3>
+
+            <p>{card.description}</p>
+            <div class="icon">
+              <a href={card.link.url}>{card.link.text} </a>
+              <DynamicIcon name="arrow--right" />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
   </div>
-
-  <ul class="full-width">
-    {
-      values.values.map((card) => (
-        <li>
-          <div class="black">
-            <DynamicIcon name={card.icon} />
-          </div>
-
-          <h3>{card.title}</h3>
-
-          <p>{card.description}</p>
-          <div class="icon">
-            <a href={card.link.url}>{card.link.text} </a>
-            <DynamicIcon name="arrow--right" />
-          </div>
-        </li>
-      ))
-    }
-  </ul>
 </section>
 
 <style>
   section {
     background-color: black;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-  }
-  .financial {
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
 
-    > div:first-child {
-      max-width: 600px;
-
-      h2 {
-        font-size: var(--step--1);
-        font-weight: 600;
-      }
-
-      p:first-child {
-        text-transform: uppercase;
-      }
-      p {
-        margin-top: var(--space-s);
-        font-size: var(--step--5);
-      }
-    }
-
-    a {
-      font-weight: 600;
-      margin-top: auto;
-      background-color: var(--bg-grey);
-      padding: 0.9375rem 2.125rem;
-      border-radius: 2.625rem;
-      color: black;
-      text-decoration: none;
-    }
-  }
-
-  ul {
-    gap: var(--space-l);
-    padding-block: 0;
-    list-style: none;
-    display: flex;
-
-    align-items: flex-start;
-    padding: 0;
-  }
-  li {
-    background-color: var(--bg-grey);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    border-radius: 1.25rem;
-    padding: 2.8125rem 2.0625rem;
-    gap: var(--space-2xs);
-
-    h3 {
-      font-size: var(--step--3);
-      font-weight: 500;
-    }
-    p {
-      font-size: var(--step--5);
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .icon {
+    .wrapperCore {
       display: flex;
+      flex-direction: column;
       gap: var(--space-m);
-      align-items: center;
+
+      .financial {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        > div:first-child {
+          max-width: 600px;
+
+          h2 {
+            font-size: var(--step--1);
+            font-weight: 600;
+          }
+
+          p:first-child {
+            text-transform: uppercase;
+          }
+          p {
+            margin-top: var(--space-s);
+            font-size: var(--step--5);
+          }
+        }
+
+        a {
+          font-weight: 600;
+          margin-top: auto;
+          background-color: var(--bg-grey);
+          padding: 0.9375rem 2.125rem;
+          border-radius: 2.625rem;
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+      ul {
+        gap: var(--space-l);
+        padding-block: 0;
+        list-style: none;
+        display: flex;
+
+        align-items: flex-start;
+        padding: 0;
+      }
+      li {
+        background-color: var(--bg-grey);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        border-radius: 1.25rem;
+        padding: 2.8125rem 2.0625rem;
+        gap: var(--space-2xs);
+
+        h3 {
+          font-size: var(--step--3);
+          font-weight: 500;
+        }
+        p {
+          font-size: var(--step--5);
+        }
+
+        a {
+          text-decoration: none;
+          color: black;
+        }
+
+        .icon {
+          display: flex;
+          gap: var(--space-m);
+          align-items: center;
+        }
+      }
     }
   }
 
