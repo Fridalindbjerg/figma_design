@@ -4,15 +4,12 @@ import employees from "@data/employees.json";
 import DynamicImage from "@components/helpers/DynamicImage.astro";
 import DynamicIcon from "@components/helpers/DynamicIcon.astro";
 import Layout from "@layouts/Layout.astro";
-import Newsletter from "@components/Newsletter.astro";
+import HeroInsides from "@components/HeroInsides.astro";
 ---
 
 <Layout>
   <HeroBgWrapper imagePath="teamheader.jpg" class="full-bleed">
-    <header>
-      <p>Team</p>
-      <h1>The Consultors</h1>
-    </header>
+    <HeroInsides p="Team" h1="The Consultors" />
   </HeroBgWrapper>
   <section class="container">
     <div>

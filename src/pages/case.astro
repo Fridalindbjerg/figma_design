@@ -2,14 +2,12 @@
 import Layout from "@layouts/Layout.astro";
 import CaseStudyArticle from "@components/CaseStudyArticle.astro";
 import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
+import HeroInsides from "@components/HeroInsides.astro";
 ---
 
 <Layout>
-  <HeroBgWrapper imagePath="caseheader.png" class="full-width">
-    <header>
-      <p>Case Studies</p>
-      <h1>Taxes & Efficiency</h1>
-    </header>
+  <HeroBgWrapper imagePath="caseheader.png" class="full-bleed">
+    <HeroInsides p="Case Studie" h1="Taxes & Efficiency" />
   </HeroBgWrapper>
 
   <CaseStudyArticle />

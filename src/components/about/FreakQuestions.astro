@@ -1,0 +1,80 @@
+---
+import data from "@data/faq.json";
+---
+
+<section class="container">
+  <div>
+    <p>FAQ</p>
+    <h2>Customer Questions</h2>
+  </div>
+  <div>
+    {
+      data.faq.map((question) => (
+        <details name="accordion">
+          <summary> {question.question} </summary>
+
+          <div>
+            <p>{question.answer}</p>
+          </div>
+        </details>
+          <hr />
+      ))
+    }
+  </div>
+
+  <style>
+    section {
+      background-color: var(--bg-grey);
+      padding: 9.4375rem 14.75rem;
+
+      align-items: center; /* centrerer horisontalt */
+      text-align: left; /* tekst inde i børn flugter til venstre */
+      border-radius: 1.875rem;
+
+      > div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-m);
+
+        h2 {
+          margin-bottom: var(--space-l);
+          font-size: var(--step--1);
+          font-weight: 600;
+        }
+      }
+    }
+
+    details {
+      summary {
+        display: flex; /* gør summary til flex-container */
+        justify-content: space-between; /* spørgsmålet til venstre, + til højre */
+        align-items: center; /* lodret centrering */
+        cursor: pointer; /* pointer cursor på summary */
+        font-size: var(--step--4);
+        font-weight: 500;
+        /* margin-bottom: var(--space-m); */
+        + div p {
+          margin-top: var(--space-m);
+        }
+      }
+
+      summary::after {
+        content: "+";
+        transition: transform 5s; /* hvis du vil animere rotation ved open */
+      }
+
+      [open] summary::after {
+        content: "-";
+      }
+    }
+    hr {
+      width: 100%;
+      border: none;
+      height: 2px;
+      background-color: #dadada;
+                margin: var(--space-m) 0;
+
+    }
+  </style>
+</section>
