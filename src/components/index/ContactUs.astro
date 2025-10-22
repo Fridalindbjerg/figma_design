@@ -50,14 +50,23 @@ import DynamicImage from "@components/helpers/DynamicImage.astro";
 
 <style>
   section {
-    display: flex;
+    margin: var(--space-xl) 0;
+
     gap: var(--space-xl);
 
-    > div {
+    @media (min-width: 768px) {
       display: flex;
-      flex-direction: column;
+    }
 
+    > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: var(--space-xl);
       gap: var(--space-xl);
+      @media (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .gapxl {

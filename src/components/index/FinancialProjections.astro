@@ -3,38 +3,46 @@ import financialProjections from "@data/financialProjections.json";
 import DynamicIcon from "@components/helpers/DynamicIcon.astro";
 ---
 
-<section class="container">
-  <div class="financial">
-    <div>
-      <h2>{financialProjections.title}</h2>
-      <p>{financialProjections.subtitle}</p>
-    </div>
-    <div class="icon">
-      <div class="black">
-        <DynamicIcon name="arrow-left" />
+<div class="grey full-bleed">
+  <section class="container">
+    <div class="financial">
+      <div>
+        <h2>{financialProjections.title}</h2>
+        <p>{financialProjections.subtitle}</p>
       </div>
-      <div class="yellow">
-        <DynamicIcon name="arrow--right" />
+      <div class="icon">
+        <div class="black">
+          <DynamicIcon name="arrow-left" />
+        </div>
+        <div class="yellow">
+          <DynamicIcon name="arrow--right" />
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<ul class="bleed-right">
-  {
-    financialProjections.values.map((card) => (
-      <li>
-        <DynamicIcon name={card.icon} />
-        <h3>{card.title}</h3>
+  </section>
+</div>
+<div class="grey full-bleed">
+  <ul class="bleed-right">
+    {
+      financialProjections.values.map((card) => (
+        <li>
+          <DynamicIcon name={card.icon} />
+          <h3>{card.title}</h3>
 
-        <p>{card.description}</p>
-        {/* <div>{card.icon}</div> */}
-      </li>
-    ))
-  }
-</ul>
+          <p>{card.description}</p>
+          {/* <div>{card.icon}</div> */}
+        </li>
+      ))
+    }
+  </ul>
+</div>
 
 <style>
+  .grey {
+    background-color: var(--bg-card-light);
+  }
   section {
+    margin: var(--space-2xl) 0;
     display: flex;
     flex-direction: column;
     gap: var(--step-2);
@@ -64,6 +72,8 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
   }
 
   ul {
+    margin-bottom: var(--space-l);
+
     gap: var(--space-l);
     padding-block: 0;
     list-style: none;
@@ -78,27 +88,27 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
     padding-inline: var(--scroll-padding);
     scroll-snap-type: x mandatory; /* Aktiver snap på x-aksen */
     scroll-behavior: smooth;
-  }
-  li {
-    background-color: var(--bg-grey);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    li {
+      background-color: var(--bg-grey);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
-    border-radius: 1.25rem;
-    padding: 2.8125rem 2.0625rem;
-    gap: var(--space-2xs);
+      border-radius: 1.25rem;
+      padding: 2.8125rem 2.0625rem;
+      gap: var(--space-2xs);
 
-    flex: 0 0 400px;
-    scroll-snap-align: start; /* Snap ved start af elementet */
-    scroll-snap-stop: always;
+      flex: 0 0 400px;
+      scroll-snap-align: start; /* Snap ved start af elementet */
+      scroll-snap-stop: always;
 
-    h3 {
-      font-size: var(--step--3);
-      font-weight: 500;
-    }
-    p {
-      font-size: var(--step--5);
+      h3 {
+        font-size: var(--step--3);
+        font-weight: 500;
+      }
+      p {
+        font-size: var(--step--5);
+      }
     }
   }
 

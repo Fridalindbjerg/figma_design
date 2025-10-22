@@ -6,11 +6,6 @@ import Checkmark from "@icons/checkmark.svg";
 
 <section>
   <div class="wrapper full-bleed">
-    <!-- <Image src={indexAbout} alt="CEO" /> -->
-
-    <!-- <HeroBgWrapper imagePath="indexAboutPhoto.jpg" class="hero-bg">
-    <h1>Din overskrift</h1>
-  </HeroBgWrapper> -->
     <figure>
       <img src="/src/assets/images/indexAboutPhoto.jpg" alt="people at table" />
     </figure>
@@ -38,11 +33,14 @@ import Checkmark from "@icons/checkmark.svg";
 
 <style>
   section {
+    margin: var(--space-2xl) 0;
+
     .wrapper {
       display: flex;
-      /* flex-direction: row-reverse;  */
-
       gap: var(--space-2xl);
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
 
       > div {
         display: flex;
