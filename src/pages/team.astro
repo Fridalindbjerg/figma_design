@@ -22,19 +22,21 @@ import HeroInsides from "@components/HeroInsides.astro";
     <div>
       {
         employees.map((employee) => (
-          <article>
-            <DynamicImage imagePath={employee.img} altText={employee.name} width={400} height={400} />
+          <a href={`employees/${employee.slug}`}>
+            <article>
+              <DynamicImage imagePath={employee.img} altText={employee.name} width={400} height={400} />
 
-            <h2>{employee.name}</h2>
-            <p>{employee.description}</p>
-            <ul>
-              {employee.social_links.map((icons) => (
-                <li>
-                  <DynamicIcon name={icons.icon} />
-                </li>
-              ))}
-            </ul>
-          </article>
+              <h2>{employee.name}</h2>
+              <p>{employee.description}</p>
+              <ul>
+                {employee.social_links.map((icons) => (
+                  <li>
+                    <DynamicIcon name={icons.icon} />
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </a>
         ))
       }
     </div>
@@ -79,31 +81,36 @@ import HeroInsides from "@components/HeroInsides.astro";
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-m);
 
-    article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-s);
-      max-width: 400px;
+    a {
+      text-decoration: none;
+      color: black;
 
-      p {
-        text-align: center;
-      }
-
-      img {
-        border-radius: 25px;
-      }
-
-      h2 {
-        font-size: var(--step--2);
-        font-weight: 600;
-      }
-
-      ul {
-        padding: 0;
-        list-style: none;
+      article {
         display: flex;
-        gap: var(--space-m);
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-s);
+        max-width: 400px;
+
+        p {
+          text-align: center;
+        }
+
+        img {
+          border-radius: 25px;
+        }
+
+        h2 {
+          font-size: var(--step--2);
+          font-weight: 600;
+        }
+
+        ul {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          gap: var(--space-m);
+        }
       }
     }
   }

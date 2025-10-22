@@ -6,11 +6,23 @@ import DynamicImage from "@components/helpers/DynamicImage.astro";
 import employees from "@data/employees.json";
 import Newsletter from "@components/Newsletter.astro";
 
-const employee = employees[0]; // vælger første medarbejder
+export async function getStaticPaths() {
+  return employees.map((employee) => ({
+    params: { slug: employee.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const employee = employees.find((e) => e.slug === slug);
+
+if (!employee) {
+  throw new Error("Employee not found");
+}
 ---
 
 <Layout title={employee.name}>
-  <section>
+  <section class="container">
     <DynamicImage imagePath={employee.img} altText={employee.name} width={600} height={600} />
     <div>
       <div class="top">
@@ -48,9 +60,14 @@ const employee = employees[0]; // vælger første medarbejder
 
 <style>
   section {
+    margin-top: var(--space-2xl);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
 
     .top {
       display: flex;

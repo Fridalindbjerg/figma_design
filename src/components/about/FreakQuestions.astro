@@ -49,13 +49,13 @@ import data from "@data/faq.json";
 
     details {
       summary {
-        display: flex; /* gør summary til flex-container */
-        justify-content: space-between; /* spørgsmålet til venstre, + til højre */
-        align-items: center; /* lodret centrering */
-        cursor: pointer; /* pointer cursor på summary */
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        cursor: pointer;
         font-size: var(--step--4);
         font-weight: 500;
-        /* margin-bottom: var(--space-m); */
+
         + div p {
           margin-top: var(--space-m);
         }
@@ -63,19 +63,19 @@ import data from "@data/faq.json";
 
       summary::after {
         content: "+";
-        transition: transform 5s; /* hvis du vil animere rotation ved open */
+        transition: transform 5s; 
       }
 
-      [open] summary::after {
-        content: "-";
-      }
+    }
+    [open] summary::after {
+      content: "-";
     }
     hr {
       width: 100%;
       border: none;
       height: 2px;
       background-color: #dadada;
-                margin: var(--space-m) 0;
+      margin: var(--space-m) 0;
 
     }
   </style>
