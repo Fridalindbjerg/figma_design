@@ -26,6 +26,24 @@
     background-size: 20%;
     background-repeat: no-repeat;
     background-position: right;
+    position: relative;
+
+    /* &::after {
+      content: "";
+      position: absolute;
+      top: 5rem;
+      left: 65rem;
+      background: green;
+      border-radius: 30px;
+      width: 150px;
+      aspect-ratio: 1/1;
+      z-index: 1;
+      transform: translate(50%, 0) rotate(45deg);
+    } */
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: var(--space-l);
+    }
 
     div:first-child {
       h3 {
@@ -37,6 +55,11 @@
     div:nth-child(2) {
       display: flex;
       gap: var(--space-s);
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: var(--space-l);
+      }
       form {
         display: flex;
         align-items: center;
@@ -59,6 +82,7 @@
         text-decoration: none;
         color: black;
         position: relative;
+        /* overflow: hidde
 
         &::after {
           content: "";
@@ -71,7 +95,7 @@
           aspect-ratio: 1/1;
           z-index: 1;
           transform: translate(50%, 0) rotate(45deg);
-        }
+        } */
       }
     }
   }
