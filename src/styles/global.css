@@ -30,19 +30,6 @@ html {
   --step-2: clamp(1.1385rem, -0.4662rem + 7.132vw, 4.8828rem);
 }
 
-/* body {
-  display: grid;
-  grid-template-columns:
-    [full-start] 1fr
-    [content-start] minmax(0, 600px) minmax(0, 600px)
-    [content-end] 1fr
-    [full-end];
-}
-
-body > * {
-  grid-column: content-start / content-end;
-} */
-
 body {
   display: grid;
   grid-template-columns: [full-start] 1fr [content-start] minmax(0, 600px) [middle] minmax(0, 600px) [content-end] 1fr [full-end];

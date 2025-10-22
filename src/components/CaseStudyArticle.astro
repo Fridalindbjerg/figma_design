@@ -99,12 +99,18 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 
       padding: 3.3125rem 2rem; /* top/bund og venstre/højre padding */
       display: flex;
-      justify-content: space-between;
       border-radius: 1.875rem;
       background-color: #000;
       color: white;
       position: relative;
       z-index: 2;
+      flex-direction: column;
+
+      gap: var(--space-m);
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
 
       dl {
         display: flex;
@@ -123,6 +129,9 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
         border-radius: 2.625rem;
         color: #000;
         font-weight: 600;
+
+        width: auto;
+        align-self: center;
       }
     }
 

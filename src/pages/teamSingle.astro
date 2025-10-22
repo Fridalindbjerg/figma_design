@@ -9,7 +9,7 @@ import Newsletter from "@components/Newsletter.astro";
 const employee = employees[0]; // vælger første medarbejder
 ---
 
-<Layout>
+<Layout title={employee.name}>
   <section>
     <DynamicImage imagePath={employee.img} altText={employee.name} width={600} height={600} />
     <div>

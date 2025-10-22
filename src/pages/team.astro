@@ -7,7 +7,7 @@ import Layout from "@layouts/Layout.astro";
 import HeroInsides from "@components/HeroInsides.astro";
 ---
 
-<Layout>
+<Layout title="Team">
   <HeroBgWrapper imagePath="teamheader.jpg" class="full-bleed">
     <HeroInsides p="Team" h1="The Consultors" />
   </HeroBgWrapper>
@@ -23,7 +23,7 @@ import HeroInsides from "@components/HeroInsides.astro";
       {
         employees.map((employee) => (
           <article>
-            <DynamicImage imagePath={employee.img} altText={employee.name} width={300} height={300} />
+            <DynamicImage imagePath={employee.img} altText={employee.name} width={400} height={400} />
 
             <h2>{employee.name}</h2>
             <p>{employee.description}</p>
@@ -47,6 +47,8 @@ import HeroInsides from "@components/HeroInsides.astro";
     justify-content: space-between;
     margin: var(--space-l) 0;
     align-items: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-m);
 
     h1 {
       font-size: var(--step--1);
@@ -82,7 +84,7 @@ import HeroInsides from "@components/HeroInsides.astro";
       flex-direction: column;
       align-items: center;
       gap: var(--space-s);
-      max-width: 300px;
+      max-width: 400px;
 
       p {
         text-align: center;

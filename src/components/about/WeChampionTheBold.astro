@@ -16,7 +16,7 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
     {
       employees.slice(0, 3).map((employee) => (
         <article>
-          <DynamicImage imagePath={employee.img} altText={employee.name} width={300} height={300} />
+          <DynamicImage imagePath={employee.img} altText={employee.name} width={400} height={400} />
 
           <h2>{employee.name}</h2>
           <p>{employee.description}</p>
@@ -74,7 +74,7 @@ import DynamicIcon from "@components/helpers/DynamicIcon.astro";
       flex-direction: column;
       align-items: center;
       gap: var(--space-s);
-      max-width: 300px;
+      max-width: 400px;
 
       p {
         text-align: center;
