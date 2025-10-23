@@ -22,7 +22,7 @@ import HeroInsides from "@components/HeroInsides.astro";
     <div>
       {
         employees.map((employee) => (
-          <a href={`employees/${employee.slug}`}>
+          <a href={`/employees/${employee.slug}`}>
             <article>
               <DynamicImage imagePath={employee.img} altText={employee.name} width={400} height={400} />
 
