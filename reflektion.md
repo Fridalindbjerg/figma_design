@@ -75,6 +75,10 @@ ul{
 
 - Er ikke super responsivt. Snakkede med Chattie, som sagde, at man kan gøre noget med at ligge den position: relative i stedet for, men kastede mig ikke ud i. Tænker du viser en top dollar løsning i morgen.
 
+##### Drilleri med casestudie ved responsivitet
+
+- Der er noget med et skelet, der ikke helt virker. Snakkede igen med Chattie, men blev enig med mig selv om, at det gik nok.
+
 ##### Sikkert flere, men jeg kan ikke huske lige nu
 
 ## Succeser
