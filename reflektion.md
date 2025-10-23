@@ -4,7 +4,7 @@
 
 Hvis jeg skulle gøre det hele om igen, ville jeg gå meget mere strategisk og organiseret til værks. Når opgaven er så opdelt i komponenter, og derfor har det været nemt at hoppe fra komponent til kompenent, når jeg er løbet ind i et problem. Det har blandet andet gjort, at jeg ikke har organiseret mine font-sizes globalt og givet mine sections margins i gloabl, så de alle sammen er ens.
 
-## global og componentbaseret css
+## Global og componentbaseret css
 
 Jeg har organiseret så mine fontsizes, spaces og min 'skelet' er indsat i global, som er linket i min Layout, så jeg kan bruge mine forskellige classes på alle componenter.
 
@@ -67,11 +67,19 @@ ul{
 
 - Virkede kun nogle gange??
 
+##### Stier i Astro
+
+- Driller altid, når jeg skal deploy. Det er noget med root og sjov, som ikke rigig virker? Kan vi evt snakke om fælles
+
+##### Minus-margin på fx index ved service-bokse
+
+- Er ikke super responsivt. Snakkede med Chattie, som sagde, at man kan gøre noget med at ligge den position: relative i stedet for, men kastede mig ikke ud i. Tænker du viser en top dollar løsning i morgen.
+
 ##### Sikkert flere, men jeg kan ikke huske lige nu
 
 ## Succeser
 
-##### Brug af map.
+##### Brug af .map
 
 - Den sidder på rygraden nu !!
 
